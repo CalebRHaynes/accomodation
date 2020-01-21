@@ -19,7 +19,7 @@ shapiro.test(discount_rate_k)
 shapiro.test(percent_delayed_choices)
 
 #log transform discount rate k 
-discount_rate_k_transformed <- log10(discount_rate_k + 1)
+discount_rate_k_transformed <- log10(discount_rate_k)
 shapiro.test(discount_rate_k_transformed)
 
 # plotting ----------------------------------------------------------------
