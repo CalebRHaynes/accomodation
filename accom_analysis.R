@@ -8,6 +8,8 @@ getwd()
 library('readxl')
 library("dplyr")
 library("QuantPsyc")
+library("corrplot")
+library("tidyverse")
 #import data---------------------------------------------------------------
 df <- read_excel("accom_clean.xlsx")
 #create subset of data to exclude subjects with weird output that is yet to be debugged 
@@ -22,9 +24,10 @@ shapiro.test(k)
 shapiro.test(percent_delayed_choices)
 #log transform discount rate k 
 k_transformed <- log10(k)
+k_transformed
 shapiro.test(k_transformed)
 
-# plotting ----------------------------------------------------------------
+# plotting variables ----------------------------------------------------------------
 #discount rate k normality log transformed 
 disc_k_t <- density(k_transformed)
 plot(disc_k_t, type="n", main="discount rate k (transformed)")
@@ -39,3 +42,6 @@ rug(percent_delayed_choices, col="red")
 
 #correlations####
 
+df <- as_tibble(df)
+
+df %>% select(Sepal.Length, Petal.Length)
