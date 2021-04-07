@@ -16,7 +16,7 @@ library('apaTables')
 
 #import data---------------------------------------------------------------
 df <- read_excel("accom_clean.xlsx")
-#create subset of data to exclude subjects with weird output that is yet to be debugged 
+#create subset of data to exclude subjects with missing data 
 df_subset <- subset(df, df$exclude == 0)
 attach(df_subset)
 k <- as.numeric(discount_rate_k)
@@ -30,11 +30,11 @@ percent_delayed_choices <- as.numeric(percent_delayed_choices)
 #normality tests-----------------------------------------------------------
 
 #initial normality tests 
-shapiro.test(k)
-shapiro.test(percent_delayed_choices)
+#shapiro.test(k)
+#shapiro.test(percent_delayed_choices)
 #log transform discount rate k 
-k_transformed <- log10(k)
-k_transformed
+#k_transformed <- log10(k)
+#k_transformed
 shapiro.test(k_transformed)
 
 # plotting variables ----------------------------------------------------------------
